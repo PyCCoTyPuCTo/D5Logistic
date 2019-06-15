@@ -19,8 +19,12 @@ Auth::routes();
 
 
 Route::group(['prefix' => 'jane'], function () {
-    Route::get('/', function () {
-        return view('');
+    Route::get('/stock', function () {
+        return view('seller/add_stock');
+    });
+
+    Route::get('/product', function () {
+        return view('seller/add_product');
     });
 });
 
@@ -32,22 +36,55 @@ Route::group(['prefix' => 'andrey'], function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//---------------загрузка фото на сервер-------------------------------------------------
+Route::get('upload',['as' => 'upload_form', 'uses' => 'UploadController@getForm']);
+Route::post('upload',['as' => 'upload_file','uses' => 'UploadController@upload']);
+//----------------------------------------------------------------------------------------
+
 Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'customer'], function () {
         Route::group(['middleware' => 'customer'], function () {
-            Route::get('/', function () {
-                return 'customer';
-            });
+            Route::get('delivery_orders', function () {
+                return 'delivery_orders';
+            })->name('customer.deliveryOrders');
+
+            Route::get('today_orders', function () {
+                return 'today_orders';
+            })->name('customer.todayOrders');
+
+            Route::get('markets', function () {
+                return 'markets';
+            })->name('customer.markets');
         });
     });
 
 
     Route::group(['prefix' => 'seller'], function () {
         Route::group(['middleware' => 'seller'], function () {
-            Route::get('/', function () {
-                return 'seller';
-            });
+            Route::get('warehouses', function () {
+                return 'warehouses';
+            })->name('seller.warehouses');
+
+            Route::get('products', function () {
+                return 'products';
+            })->name('customer.products');
+
+            Route::get('vehicles', function () {
+                return 'vehicles';
+            })->name('customer.vehicles');
+
+            Route::get('itinerary', function () {
+                return 'itinerary';
+            })->name('customer.itinerary');
+
+            Route::get('products_in_warehouses', function () {
+                return 'productsInWarehouses';
+            })->name('customer.productsInWarehouses');
+
+            Route::get('approval_of_deliveries', function () {
+                return 'approvalOfDeliveries';
+            })->name('customer.approvalOfDeliveries');
         });
     });
 
