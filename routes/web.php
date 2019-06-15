@@ -17,6 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::group(['prefix' => 'jane'], function () {
+    Route::get('/', function () {
+        return view('');
+    });
+});
+
+Route::group(['prefix' => 'andrey'], function () {
+    Route::get('/', function () {
+        return 'asdasd';
+    });
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'auth'], function () {

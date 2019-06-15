@@ -1,7 +1,9 @@
 @extends('layouts.app')
-
+@section('register')
+    <link href="{{ asset('css/register.css') }}" rel="stylesheet">
+@endsection
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 4%">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -39,6 +41,50 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control @error('name') is-invalid @enderror" name="phone" value="{{ old('name') }}" required autocomplete="phone" autofocus>
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="inn" class="col-md-4 col-form-label text-md-right">{{ __('Inn') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="inn" type="text" class="form-control @error('name') is-invalid @enderror" name="inn" value="{{ old('name') }}" required autocomplete="inn" autofocus>
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="address" type="text" class="form-control @error('name') is-invalid @enderror" name="address" value="{{ old('name') }}" required autocomplete="address" autofocus>
+
+                                @error('phone')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -52,7 +98,12 @@
                                 @enderror
                             </div>
                         </div>
-
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div id="map">
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
@@ -68,6 +119,7 @@
                                 </button>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>
