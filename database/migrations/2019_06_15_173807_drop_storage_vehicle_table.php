@@ -13,7 +13,7 @@ class DropStorageVehicleTable extends Migration
      */
     public function up()
     {
-        Schema::drop('storage_vehicle');
+        Schema::dropIfExists('storage_vehicle');
     }
 
     /**
