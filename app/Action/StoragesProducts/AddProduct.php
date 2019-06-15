@@ -25,7 +25,7 @@ class AddProduct
     {
         foreach ($this->storages as $storage)
         {
-            $storage[product_id] = $this->product;
+            $storage['product_id'] = $this->product;
             StorageProduct::create($storage);
         }
     }
