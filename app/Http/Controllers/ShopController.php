@@ -2,40 +2,52 @@
 
 namespace App\Http\Controllers;
 
+use App\Action\Geolocation\CreateGeoAction;
 use App\Action\Shop\CreateAction;
 use App\Action\Shop\DestroyAction;
 use App\Action\Shop\UpdateAction;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Auth;
+use Validator;
 
 class ShopController extends Controller
 {
 
     /**
      * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @return int
      */
     public function create(Request $request) {
         $message = [
             'name.required' => 'Название точки обязательно',
             'name.string' => 'Название должна быть строкой',
-            'name.max' => 'Превышин лимит в 300 символов'
+            'name.max' => 'Превышин лимит в 300 символов',
+            'longitude' => 'Долгота должна быть числом',
+            'latitude' => 'Ширина должна быть числом'
         ];
 
         $validator = Validator::make($request->all(),[
-            'name' => 'required|string|max:300',
-            'user_id' => 'required|integer',
-            'geolocation_id' => 'required|integer'
+            'name' => 'required|string|max:300'
+//            'name' => 'required|string|max:300',
+//            'longitude' => 'required|regex:/^\d+(\.\d{1,2})?$/\'',
+//            'latitude' => 'required|regex:/^\d+(\.\d{1,2})?$/\''
         ], $message);
-
         if ($validator->fails()){
-            return redirect()
-                ->route('customer.shop')
-                ->withErrors($validator)
-                ->exceptInput();
+            //TODO руты настроить
+//            return redirect()
+//                ->route('customer.shop')
+//                ->withErrors($validator)
+//                ->exceptInput();
+            return 403;
         }
-
-        $newShop = new CreateAction($request);
+        $newData = [];
+        $newGeo = new CreateGeoAction(
+            $request->get('longitude'),
+            $request->get('latitude'));
+        $newData['name'] = $request->get('name');
+        $newData['user_id'] = Auth::id();
+        $newData['geolocation_id'] = $newGeo->create()->id;
+        $newShop = new CreateAction($newData);
         $newShop->create();
         //TODO Андрей, настрой редирект по рутам по всем методам
         //return redirect();
