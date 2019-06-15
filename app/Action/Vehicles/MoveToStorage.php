@@ -15,7 +15,7 @@ class MoveToStorage
 
     public function __construct($id, $storage)
     {
-        $this->vehicle = Vehicle::find($id)->get();
+        $this->vehicle = Vehicle::find($id)->first();
         $this->storage_id = $storage;
     }
 

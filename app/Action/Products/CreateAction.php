@@ -17,6 +17,6 @@ class CreateAction
 
     public function create()
     {
-        Product::create($this->data);
+        Product::create($this->data->all());
     }
 }

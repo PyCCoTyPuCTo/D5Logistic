@@ -14,11 +14,11 @@ class UpdateAction
     public function __construct(Request $newData, $id)
     {
         $this->data = $newData;
-        $this->product = Product::find($id)->get();
+        $this->product = Product::find($id)->first();
     }
 
     public function update()
     {
-        $this->product->update($this->data);
+        $this->product->update($this->data->all());
     }
 }

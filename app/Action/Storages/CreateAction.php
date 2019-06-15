@@ -17,6 +17,6 @@ class CreateAction
 
     public function create()
     {
-        Storage::create($this->data);
+        Storage::create($this->data->all());
     }
 }

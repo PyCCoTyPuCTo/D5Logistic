@@ -11,7 +11,7 @@ class DestroyAction
 
     public function __construct($id)
     {
-        $this->storage = Storage::find($id)->get();
+        $this->storage = Storage::find($id)->first();
     }
 
     public function destroy()

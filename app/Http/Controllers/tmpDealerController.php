@@ -8,6 +8,41 @@ use Illuminate\Http\Request;
 
 class tmpDealerController extends Controller
 {
+    public function test()
+    {
+        $seller = new Request();
+        $seller['name'] = '123';
+        $seller['email'] = '123';
+        $seller['password'] = '123';
+        $seller['inn'] = '132';
+        $seller['geolocation_id'] = 1;
+        $seller['type_id'] = 1;
+        $seller['phone'] = '000';
+//        $this->create($seller);
+//        $this->update($seller, 3);
+        $product = new Request();
+        $product['subcategory_id'] = 1;
+        $product['name'] = '123';
+        $product['mass'] = 20;
+//        $this->createProduct($product);
+//        $this->updateProduct($product, 1);
+//        $this->destroyProduct(1);
+        $storage = new Request();
+        $storage['user_id'] = 3;
+        $storage['geolocation_id'] = 1;
+//        $this->createStorage($storage);
+//        $this->updateStorage($storage, 1);
+//        $this->destroyStorage(1);
+        $vehicles = new Request();
+        $vehicles['storage_id'] = 2;
+        $vehicles['tonnage'] = 20;
+//        $this->createVehicle($vehicles);
+//        $this->updateVehicle($vehicles, 1);
+//        $this->destroyVehicle(1);
+
+        return view('/home');
+    }
+
     public function create(Request $request)
     {
         $createSeller = new CreateAction($request);

@@ -17,6 +17,6 @@ class CreateVehicle
 
     public function create()
     {
-        Vehicle::create($this->data);
+        Vehicle::create($this->data->all());
     }
 }

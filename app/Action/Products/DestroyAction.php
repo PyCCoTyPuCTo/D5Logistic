@@ -14,7 +14,7 @@ class DestroyAction
 
     public function __construct($id)
     {
-        $this->product = Product::find($id)->get();
+        $this->product = Product::find($id)->first();
     }
 
     public function destroy()
