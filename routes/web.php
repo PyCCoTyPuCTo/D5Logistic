@@ -19,8 +19,12 @@ Auth::routes();
 
 
 Route::group(['prefix' => 'jane'], function () {
-    Route::get('/', function () {
-        return view('');
+    Route::get('/stock', function () {
+        return view('seller/add_stock');
+    });
+
+    Route::get('/product', function () {
+        return view('seller/add_product');
     });
 });
 
@@ -31,6 +35,11 @@ Route::group(['prefix' => 'andrey'], function () {
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//---------------загрузка фото на сервер-------------------------------------------------
+Route::get('upload',['as' => 'upload_form', 'uses' => 'UploadController@getForm']);
+Route::post('upload',['as' => 'upload_file','uses' => 'UploadController@upload']);
+//----------------------------------------------------------------------------------------
 
 Route::group(['middleware' => 'auth'], function () {
 
