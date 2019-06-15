@@ -9,17 +9,16 @@ use Illuminate\Http\Request;
 class UpdateAction
 {
     private $data;
-    private $idSeller;
+    private $seller;
 
     public function __construct(Request $newData, $id)
     {
         $this->data = $newData;
-        $this->idSeller = $id;
+        $this->seller = User::find($id)->get();
     }
 
     public function update()
     {
-        $user = new User($this->idSeller);
-        User::updated($this->data);
+        $this->seller->update($this->data);
     }
 }

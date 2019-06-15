@@ -1,24 +1,25 @@
 <?php
 
 
-namespace App\Action\Products;
+namespace App\Action\Storages;
 
+use App\Storage;
 use Illuminate\Http\Request;
-use App\Product;
 
 class UpdateAction
 {
     private $data;
-    private $product;
+    private $storage;
 
     public function __construct(Request $newData, $id)
     {
         $this->data = $newData;
-        $this->product = Product::find($id)->get();
+        $this->storage = Storage::find($id)->get();
     }
 
     public function update()
     {
-        $this->product->update($this->data);
+        $this->storage->update($this->data);
     }
+
 }

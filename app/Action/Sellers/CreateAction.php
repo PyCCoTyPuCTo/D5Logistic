@@ -19,6 +19,6 @@ class CreateAction
 
     public function create()
     {
-        User::created($this->data);
+        User::create($this->data);
     }
 }

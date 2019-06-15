@@ -1,10 +1,10 @@
 <?php
 
 
-namespace App\Action\Products;
+namespace App\Action\Storages;
 
+use App\Storage;
 use Illuminate\Http\Request;
-use App\Product;
 
 class CreateAction
 {
@@ -17,6 +17,6 @@ class CreateAction
 
     public function create()
     {
-        Product::create($this->data);
+        Storage::create($this->data);
     }
 }

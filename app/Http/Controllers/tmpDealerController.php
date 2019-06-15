@@ -24,106 +24,104 @@ class tmpDealerController extends Controller
      * @param Request $request: product
      * @param $id: user id
      */
-    public function createProduct(Request $request, $id)
+    public function createProduct(Request $request)
     {
-        $createProduct = new \App\Action\Products\CreateAction($request, $id);
+        $createProduct = new \App\Action\Products\CreateAction($request);
         $createProduct->create();
     }
 
     /**
      * @param Request $request: product
-     * @param $id: user id
      * @param $product: product id
      */
-    public function updateProduct(Request $request, $id, $product)
+    public function updateProduct(Request $request, $product)
     {
-        $updateProduct = new \App\Action\Products\UpdateAction($request, $id, $product);
+        $updateProduct = new \App\Action\Products\UpdateAction($request, $product);
         $updateProduct->update();
     }
 
     /**
-     * @param $id: user id
      * @param $product: product id
      */
-    public function destroyProduct($id, $product)
+    public function destroyProduct($product)
     {
-        $destroyProduct = new \App\Action\Products\DestroyAction($id, $product);
+        $destroyProduct = new \App\Action\Products\DestroyAction($product);
         $destroyProduct->destroy();
     }
 
     /**
      * @param Request $request: storage
-     * @param $id: user id
      */
-    public function createStorage(Request $request, $id)
+    public function createStorage(Request $request)
     {
-
+        $createStorage = new \App\Action\Storages\CreateAction($request);
+        $createStorage->create();
     }
 
     /**
      * @param Request $request: storage
-     * @param $id: user id
      * @param $storage: storage id
      */
-    public function updateStorage(Request $request, $id, $storage)
+    public function updateStorage(Request $request, $storage)
     {
-
+        $updateStorage = new \App\Action\Storages\UpdateAction($request, $storage);
+        $updateStorage->update();
     }
 
     /**
-     * @param $id: user id
      * @param $storage: storage id
      */
-    public function destroyStorage($id, $storage)
+    public function destroyStorage($storage)
     {
-
+        $destroyStorage = new \App\Action\Storages\DestroyAction($storage);
+        $destroyStorage->destroy();
     }
 
     /**
      * @param Request $request: vehicle
-     * @param $id: user id
      */
-    public function createVehicle(Request $request, $id)
+    public function createVehicle(Request $request)
     {
-
+        $createVehicle = new \App\Action\Vehicles\CreateVehicle($request);
+        $createVehicle->create();
     }
 
     /**
      * @param Request $request: vehicle
-     * @param $id: user id
      * @param $vehicle: vehicle id
      */
-    public function updateVehicle(Request $request, $id, $vehicle)
+    public function updateVehicle(Request $request, $vehicle)
     {
-
+        $updateVehicle = new \App\Action\Vehicles\UpdateVehicle($request, $vehicle);
+        $updateVehicle->update();
     }
 
     /**
-     * @param $id: user id
      * @param $vehicle: vehicle id
      */
-    public function destroyVehicle($id, $vehicle)
+    public function destroyVehicle($vehicle)
     {
-
+        $destroyVehicle = new \App\Action\Vehicles\DestroyVehicle($vehicle);
+        $destroyVehicle->destroy();
     }
 
     /**
-     * @param $id: user id
      * @param $vehicle: vehicle id
      * @param $storage: storage id
      */
-    public function moveVehicleToStorage($id, $vehicle, $storage)
+    public function moveVehicleToStorage($vehicle, $storage)
     {
-
+        $moveVehicle = new \App\Action\Vehicles\MoveToStorage($vehicle, $storage);
+        $moveVehicle->move();
     }
 
     /**
-     * @param $id: user id
      * @param $product: product id
      * @param $storages: array of storage
      */
-    public function addProductToStorages($id, $product, $storages)
+    public function addProductToStorages($product, $storages)
     {
-
+        $addProduct = new \App\Action\StoragesProducts\AddProduct($product, $storages);
+        $addProduct->toStorages();
     }
 }
