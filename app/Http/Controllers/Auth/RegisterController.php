@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Geolocation;
+use App\TypeUser;
 
 class RegisterController extends Controller
 {
@@ -43,7 +45,7 @@ class RegisterController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
@@ -58,15 +60,27 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      *
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
     {
+        /* Фрагмент для отладки трогать когда будет фронт*/
+        $inn = 123456789;
+        $typeName = 'Customer';
+        $type = TypeUser::all()->where('name', '=', $typeName);
+        $phone = '1231231';
+        $address = 'sdfsdf';
+        /*  Фрагмент для отладки  */
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'inn' => $inn,
+            'type_id' => $type->id,
+            'phone' => $phone,
+            'address' => $address
         ]);
     }
 }
