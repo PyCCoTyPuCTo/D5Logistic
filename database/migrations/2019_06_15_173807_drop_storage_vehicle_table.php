@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddGeoFKForUser extends Migration
+class DropStorageVehicleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,7 @@ class AddGeoFKForUser extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->foreign('geolocation_id')->references('id')->on('geolocation');
-        });
+        Schema::dropIfExists('storage_vehicle');
     }
 
     /**
@@ -25,7 +23,7 @@ class AddGeoFKForUser extends Migration
      */
     public function down()
     {
-        Schema::table('user', function (Blueprint $table) {
+        Schema::table('storage_vehicle', function (Blueprint $table) {
             //
         });
     }

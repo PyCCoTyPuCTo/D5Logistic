@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddStorageVehicle extends Migration
+class CreateProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class AddStorageVehicle extends Migration
      */
     public function up()
     {
-        Schema::create('storage_vehicle', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->unsignedBigInteger('storage_id');
-            $table->unsignedBigInteger('vehicle_id');
-            $table->foreign('storage_id')->references('id')->on('storage');
-            $table->foreign('vehicle_id')->references('id')->on('vehicle');
+            $table->string('name', 300);
+            $table->unsignedBigInteger('subcategory_id');
             $table->timestamps();
         });
     }
@@ -30,6 +28,6 @@ class AddStorageVehicle extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('storage_vehicle');
+        Schema::dropIfExists('products');
     }
 }
