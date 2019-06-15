@@ -15,8 +15,7 @@ class FkeySubcategoryProducts extends Migration
     {
         Schema::table('products', function (Blueprint $table)
         {
-            $table->foreign('subcategory_id')->references('id')->on('subcategories')
-                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('subcategory_id')->references('id')->on('subcategories');
         });
     }
 

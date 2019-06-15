@@ -13,10 +13,9 @@ class FkeyCategorySubcategory extends Migration
      */
     public function up()
     {
-        Schema::table('subcategory', function (Blueprint $table)
+        Schema::table('subcategories', function (Blueprint $table)
         {
-            $table->foreign('category_id')->references('id')->on('categories')
-                ->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
