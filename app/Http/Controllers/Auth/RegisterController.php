@@ -66,8 +66,6 @@ class RegisterController extends Controller
         /* Фрагмент для отладки трогать когда будет фронт*/
         $inn = 123456789;
 
-        $inn = 123456789;
-
         /*  Фрагмент для отладки  */
 
         return User::create([
