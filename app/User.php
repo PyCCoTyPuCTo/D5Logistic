@@ -39,6 +39,6 @@ class User extends Authenticatable
 
     public function type()
     {
-        $this->belongsTo('App\TypeUser');
+        return $this->belongsTo('App\TypeUser');
     }
 }
