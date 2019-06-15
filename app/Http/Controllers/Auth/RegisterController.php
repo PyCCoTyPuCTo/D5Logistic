@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Geolocation;
+use App\TypeUser;
 
 class RegisterController extends Controller
 {
@@ -65,6 +67,10 @@ class RegisterController extends Controller
     {
         /* Фрагмент для отладки трогать когда будет фронт*/
         $inn = 123456789;
+        $geo = Geolocation::create(['longitude' => 32, 'latitude' => 22]);
+        $typeName = 'Customer';
+        $type = TypeUser::all()->where('name', '=', $typeName);
+        $phone = '1231231';
 
         /*  Фрагмент для отладки  */
 
@@ -73,9 +79,9 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'inn' => $inn,
-            'geolocation_id',
-            'type_id',
-            'phone'
+            'geolocation_id' => $geo->id,
+            'type_id' => $type->id,
+            'phone' => $phone
         ]);
     }
 }
