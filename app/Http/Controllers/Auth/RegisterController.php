@@ -68,7 +68,7 @@ class RegisterController extends Controller
         /* Фрагмент для отладки трогать когда будет фронт*/
         $inn = 123456789;
         $typeName = 'Customer';
-        $type = TypeUser::all()->where('name', '=', $typeName);
+        $type = TypeUser::all()->where('name', '=', $typeName)->first();
         $phone = '1231231';
         $address = 'sdfsdf';
         /*  Фрагмент для отладки  */
