@@ -16,10 +16,10 @@ class Seller
             if ($userType == 'Seller') {
                 return $next($request);
             } else {
-                return route('login');
+                return redirect('login');
             }
         } else {
-            return route('login');
+            return redirect('login');
         }
     }
 }
