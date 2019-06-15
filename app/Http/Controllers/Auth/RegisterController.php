@@ -30,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -65,22 +65,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        /* Фрагмент для отладки трогать когда будет фронт*/
-        $inn = 123456789;
-        $typeName = 'Customer';
-        $type = TypeUser::all()->where('name', '=', $typeName)->first();
-        $phone = '1231231';
-        $address = 'sdfsdf';
-        /*  Фрагмент для отладки  */
+        $type = TypeUser::all()->find($data['type']);
 
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'inn' => $inn,
+            'inn' => $data['inn'],
             'type_id' => $type->id,
-            'phone' => $phone,
-            'address' => $address
+            'phone' => $data['phone'],
+            'address' => $data['address']
         ]);
     }
 }
