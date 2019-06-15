@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('inn');
-            $table->unsignedBigInteger('geolocation_id');
+            $table->string('address');
             $table->unsignedBigInteger('type_id');
             $table->string('phone');
             $table->rememberToken();
