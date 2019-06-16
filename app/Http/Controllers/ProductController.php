@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Action\Products\CreateAction;
 use App\Action\Products\DestroyAction;
 use App\Action\Products\UpdateAction;
+use App\Product;
+use App\ProductStorage;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -36,5 +38,13 @@ class ProductController extends Controller
     {
         $destroyProduct = new DestroyAction($id);
         $destroyProduct->destroy();
+    }
+
+    public function getById($id){
+        return Product::find($id);
+    }
+
+    public function getAllFromStorage($id) {
+        return $productFromStorage = ProductStorage::where('storage_id', $id);
     }
 }
