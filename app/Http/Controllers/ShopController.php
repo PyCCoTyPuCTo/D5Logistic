@@ -56,16 +56,26 @@ class ShopController extends Controller
         return redirect()->route('customer.addMarket');
     }
 
+    public function shops(Request $request)
+    {
+        $userId = Auth::id();
+
+        /** @var Shop $shop */
+        $shops = Shop::all()->where('user_id', '=', $userId);
+
+        return view('customer.storeList', ['shops' => $shops]);
+    }
+
     public function getUpdatePage($id, Request $request)
     {
         /** @var Shop $shop */
-        $shop = Shop::finde($id);
+        $shop = Shop::find($id);
         if ($shop == null) {
             return redirect()->route('customer.addMarket');
         }
 
-        $geolocation = Geolocation::finde($shop->geolocation_id);
-        $coordinats = ['longitude', 'latitude'];
+        $geolocation = Geolocation::find($shop->geolocation_id);
+        $coordinats = ['longitude' => $geolocation->longitude, 'latitude' => $geolocation->latitude];
 
         $name = $shop->name;
         return view('customer.updateStore', ['coordinats' => $coordinats, 'id' => $shop->id, 'geolocation_id' => $geolocation->id, 'name' => $name]);

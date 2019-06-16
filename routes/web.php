@@ -53,16 +53,14 @@ Route::group(['middleware' => 'auth'], function () {
                 return 'today_orders';
             })->name('customer.todayOrders');
 
-            Route::get('markets', function () {
-                return 'markets';
-            })->name('customer.markets');
+            Route::get('markets', 'ShopController@shops')->name('customer.markets');
 
             Route::get('add_market', function () {
                 return view('addStore');
             })->name('customer.addMarket');
 
-            Route::get('update_market', 'ShopController@getUpdatePage')->name('customer.updateMarket');
-            Route::post('update_market', 'ShopController@getUpdatePage')->name('customer.updateMarket');
+            Route::get('update_market/{id}', 'ShopController@getUpdatePage')->name('customer.updateMarket');
+            Route::post('update_market', 'ShopController@update')->name('customer.updateMarketPost');
 
 
             Route::post('add_market', 'ShopController@create')->name('customer.addMarketPost');
