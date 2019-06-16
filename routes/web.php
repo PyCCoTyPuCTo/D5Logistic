@@ -63,7 +63,7 @@ Route::group(['middleware' => 'auth'], function () {
             })->name('customer.addMarket');
 
             Route::get('update_market/{id}', 'ShopController@getUpdatePage')->name('customer.updateMarket');
-            Route::post('update_market', 'ShopController@update')->name('customer.updateMarketPost');
+            Route::post('update_market/{id}', 'ShopController@update')->name('customer.updateMarketPost');
 
 
             Route::post('add_market', 'ShopController@create')->name('customer.addMarketPost');
