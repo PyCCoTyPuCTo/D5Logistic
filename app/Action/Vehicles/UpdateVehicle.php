@@ -11,10 +11,10 @@ class UpdateVehicle
     private $data;
     private $vehicle;
 
-    public function __construct(Request $request, $id)
+    public function __construct(Request $request)
     {
         $this->data = $request;
-        $this->vehicle = Vehicle::find($id)->first();
+        $this->vehicle = Vehicle::findOrFail($request->get('id'))->get();
     }
 
     public function update()
