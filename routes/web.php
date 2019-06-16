@@ -112,11 +112,11 @@ Route::group(['middleware' => 'auth'], function () {
             })->name('customer.itinerary');
 
             Route::get('products_in_warehouses', function () {
-                return 'productsInWarehouses';
+                return view('seller.productsInStreg');
             })->name('customer.productsInWarehouses');
 
             Route::get('approval_of_deliveries', function () {
-                return 'approvalOfDeliveries';
+                return view('seller.orders');
             })->name('customer.approvalOfDeliveries');
         });
     });
