@@ -31,5 +31,25 @@ class GeolocationSeeder extends Seeder
             'longitude' => 55.37378,
             'latitude' => 55.34554
         ]);
+
+        Geolocation::create([
+            'longitude' => 59.37378,
+            'latitude' => 57.34554
+        ]);
+
+        Geolocation::create([
+            'longitude' => 54.37378,
+            'latitude' => 76.34554
+        ]);
+
+        Geolocation::create([
+            'longitude' => 34.37378,
+            'latitude' => 63.34554
+        ]);
+
+        Geolocation::create([
+            'longitude' => 98.37378,
+            'latitude' => 23.34554
+        ]);
     }
 }

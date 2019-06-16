@@ -13,23 +13,23 @@ class VehiclesSeeder extends Seeder
     {
         DB::table('vehicle')->insert([
             'storage_id' => 1,
-            'tonnage' => 50,
+            'tonnage' => 1200,
             'capacity' => 50,
-            'name' => 'car1'
+            'name' => 'VW Transporter'
         ]);
 
         DB::table('vehicle')->insert([
             'storage_id' => 1,
-            'tonnage' => 50,
+            'tonnage' => 1500,
             'capacity' => 50,
-            'name' => 'car2'
+            'name' => 'MB Sprinter'
         ]);
 
         DB::table('vehicle')->insert([
             'storage_id' => 1,
-            'tonnage' => 50,
+            'tonnage' => 1500,
             'capacity' => 50,
-            'name' => 'car3'
+            'name' => 'MB Sprinter'
         ]);
     }
 }
