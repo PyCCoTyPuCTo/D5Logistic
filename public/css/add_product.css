@@ -1,5 +1,5 @@
 body {
-    background: url("/images/register_background.jpg");
+    background: url("/images/58.png");
 }
 [hidden] {
     display: none !important;
@@ -22,4 +22,7 @@ body {
     background: white;
     cursor: inherit;
     display: block;
+}
+.block{
+    padding-bottom: 5%;
 }

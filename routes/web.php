@@ -26,6 +26,7 @@ Route::group(['prefix' => 'jane'], function () {
     Route::get('/product', function () {
         return view('seller/add_product');
     });
+  
     Route::get('/cars', function () {
         return view('seller/cars');
     });
