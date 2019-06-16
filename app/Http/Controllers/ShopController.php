@@ -66,7 +66,9 @@ class ShopController extends Controller
 
         $geolocation = Geolocation::finde($shop->geolocation_id);
         $coordinats = ['longitude', 'latitude'];
-        return view('addStore', ['coordinats' => $coordinats, 'id' => $shop->id, 'geolocation_id' => $geolocation->id]);
+
+        $name = $shop->name;
+        return view('customer.updateStore', ['coordinats' => $coordinats, 'id' => $shop->id, 'geolocation_id' => $geolocation->id, 'name' => $name]);
     }
 
     /**
