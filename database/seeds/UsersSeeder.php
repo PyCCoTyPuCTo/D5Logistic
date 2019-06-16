@@ -15,7 +15,7 @@ class UsersSeeder extends Seeder
     {
 
         User::create([
-            'name' => 'Customer',
+            'name' => 'Customer1',
             'email' => 'Customer@mail.ru',
             'password' => Hash::make('Customer'),
             'inn' => 1234567,
@@ -35,6 +35,14 @@ class UsersSeeder extends Seeder
             'address' => 'Seller'
         ]);
 
-
+        User::create([
+            'name' => 'Customer2',
+            'email' => 'Customer2@mail.ru',
+            'password' => Hash::make('Customer2'),
+            'inn' => 6563346,
+            'type_id' => 1,
+            'phone' => '7654321',
+            'address' => 'Customer address2'
+        ]);
     }
 }
