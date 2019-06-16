@@ -5,7 +5,7 @@ namespace App\Action\Vehicles;
 
 use App\Vehicle;
 
-class MoveToStorage
+class MoveToStorageAction
 {
     /**
      * @var Vehicle
@@ -15,7 +15,7 @@ class MoveToStorage
 
     public function __construct($id, $storage)
     {
-        $this->vehicle = Vehicle::find($id)->first();
+        $this->vehicle = Vehicle::findOrFail($id)->get();
         $this->storage_id = $storage;
     }
 

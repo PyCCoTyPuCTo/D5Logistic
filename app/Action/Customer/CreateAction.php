@@ -14,7 +14,7 @@ class CreateAction
     private $data;
 
     /**
-     * CreateAction constructor.
+     * CreateStorageAction constructor.
      * @param $data
      */
     public function __construct($data)

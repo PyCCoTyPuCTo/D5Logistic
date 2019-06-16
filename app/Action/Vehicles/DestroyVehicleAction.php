@@ -5,13 +5,13 @@ namespace App\Action\Vehicles;
 
 use App\Vehicle;
 
-class DestroyVehicle
+class DestroyVehicleAction
 {
     private $vehicle;
 
     public function __construct($id)
     {
-        $this->vehicle = Vehicle::find($id)->first();
+        $this->vehicle = Vehicle::findOrFail($id)->get();
     }
 
     public function destroy()

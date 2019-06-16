@@ -6,7 +6,7 @@ namespace App\Action\Vehicles;
 use App\Vehicle;
 use Illuminate\Http\Request;
 
-class CreateVehicle
+class CreateVehicleAction
 {
     private $data;
 
