@@ -85,7 +85,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 
             Route::get('products', function () {
-                return 'products';
+                return view('seller.products');
             })->name('customer.products');
 
             Route::get('vehicles', 'VehicleController@getVehicleList')->name('customer.vehicles');
