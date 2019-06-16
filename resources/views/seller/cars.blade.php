@@ -1,37 +1,63 @@
 @extends('layouts.app')
 @section('register')
-    <link href="{{ asset('css/add_product.css') }}" rel="stylesheet">
+
 @endsection
 @section('content')
-    <div class="container" style="color: white">
+    <div class="container" >
         <div class="row justify-content-center">
-            <div class="col-md-10">
+            <div class="col-md-8">
                 <div class="row justify-content-center">
                     <h3>
-                        Введите информацию о товарах
+                        Информация о транспорте
                     </h3>
                 </div>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Номер</th>
-                        <th>Весовая вместимость</th>
-                        <th>Объем</th>
-                    </tr>
-                    </thead>
-                    <tfoot>
-                    <tr>
-                        <th>footer 1</th>
-                        <th>footer 2</th>
-                    </tr>
-                    </tfoot>
-                    <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>22</td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div>
+                    <table class="table">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>#</th>
+                            <th>номер</th>
+                            <th>Весовая вместимость</th>
+                            <th>Объем</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row"></th>
+                            <td></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <form method="post">
+                    @csrf
+                    <div class="form-row justify-content-center">
+
+
+                        <label for="tonnage" class="col-md-4 col-form-label text-md-right">{{ __('Tonnage') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="tonnage" type="text" class="form-control @error('password') is-invalid @enderror" name="tonnage">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+
+
+                        <div class="form-group col-md-5">
+                            <label for="tonnage">{{ __('Type') }}</label>
+                            <input type="text" class="form-control" id="tonnage">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <br>
+                            <button type="submit" class="btn btn-primary">Создать</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
