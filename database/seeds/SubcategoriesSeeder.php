@@ -12,13 +12,58 @@ class SubcategoriesSeeder extends Seeder
     public function run()
     {
         DB::table('subcategories')->insert([
-            'name' => 'Подкатегория 1',
+            'name' => 'Кофе',
             'category_id' => 1
         ]);
 
         DB::table('subcategories')->insert([
-            'name' => 'Подкатегория 2',
+            'name' => 'Чай',
+            'category_id' => 1
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Сыры',
+            'category_id' => 1
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Мясо',
+            'category_id' => 1
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Полуфабрикаты',
+            'category_id' => 1
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Стулья',
             'category_id' => 2
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Столы',
+            'category_id' => 2
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Кирпич',
+            'category_id' => 3
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Дерево',
+            'category_id' => 3
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Цемент',
+            'category_id' => 3
+        ]);
+
+        DB::table('subcategories')->insert([
+            'name' => 'Песок',
+            'category_id' => 3
         ]);
     }
 }

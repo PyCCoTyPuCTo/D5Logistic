@@ -14,14 +14,32 @@ class ShopSeeder extends Seeder
     {
         Shop::create([
             'name' => 'shop1',
-            'user_id' => 1,
-            'geolocation_id' => 2
+            'user_id' => 5,
+            'geolocation_id' => 4
         ]);
 
         Shop::create([
             'name' => 'shop1',
-            'user_id' => 3,
-            'geolocation_id' => 3
+            'user_id' => 6,
+            'geolocation_id' => 5
+        ]);
+
+        Shop::create([
+            'name' => 'shop1',
+            'user_id' => 7,
+            'geolocation_id' => 6
+        ]);
+
+        Shop::create([
+            'name' => 'shop1',
+            'user_id' => 8,
+            'geolocation_id' => 7
+        ]);
+
+        Shop::create([
+            'name' => 'shop1',
+            'user_id' => 5,
+            'geolocation_id' => 8
         ]);
     }
 }

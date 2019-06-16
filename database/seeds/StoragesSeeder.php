@@ -12,9 +12,20 @@ class StoragesSeeder extends Seeder
     public function run()
     {
         DB::table('storage')->insert([
-            'user_id' => 2,
+            'user_id' => 1,
             'geolocation_id' => 1
         ]);
+
+        DB::table('storage')->insert([
+            'user_id' => 2,
+            'geolocation_id' => 2
+        ]);
+
+        DB::table('storage')->insert([
+            'user_id' => 3,
+            'geolocation_id' => 3
+        ]);
+
 
     }
 }
