@@ -18,60 +18,44 @@ class tmpDealerController extends Controller
 //        $seller['geolocation_id'] = 1;
 //        $seller['type_id'] = 1;
 //        $seller['phone'] = '000';
-
 //        $this->create($seller);
 //        $this->update($seller, 3);
-
 //        $product = new Request();
 //        $product['subcategory_id'] = 1;
 //        $product['name'] = '123';
 //        $product['mass'] = 20;
-
 //        $this->createProduct($product, 3);
 //        $this->updateProduct($product, 1);
 //        $this->destroyProduct(1);
-
 //        $storage = new Request();
 //        $storage['user_id'] = 3;
 //        $storage['geolocation_id'] = 1;
-//
 //        $storage1 = new Request();
 //        $storage1['user_id'] = 3;
 //        $storage1['geolocation_id'] = 1;
-
 //        $this->createStorage($storage1);
-
 //        $this->createStorage($storage);
 //        $this->updateStorage($storage, 1);
 //        $this->destroyStorage(1);
-
 //        $vehicles = new Request();
 //        $vehicles['storage_id'] = 2;
 //        $vehicles['tonnage'] = 20;
-
 //        $this->createVehicle($vehicles);
 //        $this->updateVehicle($vehicles, 1);
 //        $this->destroyVehicle(1);
-
 //        $this->addProductToStorages(2, [0 => ['storage_id' => 2, 'count' => 20]]);
-
 //        $this->moveVehicleToStorage(2, 3);
-
 //        $this->loadProductToStorage(2, 6, 100);
 //        $this->moveProduct(6, 2, 3, 50);
-
 //        $order = new Request();
 //        $order['shop_id'] = 1;
 //        $order['storage_id'] = 1;
 //        $order['date'] = '2019-06-03';
-
 //        $this->createOrder($order);
-
 //        $productOrder = new Request();
 //        $productOrder['order_id'] = 1;
 //        $productOrder['product_id'] = 1;
 //        $productOrder['count'] = 10;
-
 //        $this->createProductOrder($productOrder);
 //        $this->destroyProductOrder(1, 1);
 

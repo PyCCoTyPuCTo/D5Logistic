@@ -5,10 +5,20 @@ namespace App\Http\Controllers;
 use App\Action\Products\CreateAction;
 use App\Action\Products\DestroyAction;
 use App\Action\Products\UpdateAction;
+use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
+
+    public function products()
+    {
+        $products = Product::all();
+
+        return view('', ['']);
+    }
+
     /**
      * @param Request $request: product
      * @param $id: user id
