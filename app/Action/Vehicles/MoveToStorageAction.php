@@ -5,7 +5,7 @@ namespace App\Action\Vehicles;
 
 use App\Vehicle;
 
-class MoveToStorage
+class MoveToStorageAction
 {
     /**
      * @var Vehicle
