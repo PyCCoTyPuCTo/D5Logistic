@@ -46,8 +46,8 @@ class UsersSeeder extends Seeder
 
         User::create([
             'name' => 'ООО Алмаз',
-            'email' => 'Customer4@mail.ru',
-            'password' => Hash::make('Customer4@mail.ru'),
+            'email' => 'Customer8@mail.ru',
+            'password' => Hash::make('Customer8@mail.ru'),
             'inn' => 257129875,
             'type_id' => 1,
             'phone' => '79781234567',
@@ -56,8 +56,8 @@ class UsersSeeder extends Seeder
 
         User::create([
             'name' => 'ИП Семенова И.О.',
-            'email' => 'Seller@mail.ru',
-            'password' => Hash::make('Seller@mail.ru'),
+            'email' => 'Selle312312r@mail.ru',
+            'password' => Hash::make('Selle312312r@mail.ru'),
             'inn' => 257129875,
             'type_id' => 2,
             'phone' => '79781234567',
@@ -76,7 +76,7 @@ class UsersSeeder extends Seeder
 
         User::create([
             'name' => 'Seller3',
-            'email' => 'Seller@mail.ru',
+            'email' => 'Sellfsfdfder@mail.ru',
             'password' => Hash::make('Seller@mail.ru'),
             'inn' => 7654321,
             'type_id' => 2,
@@ -86,7 +86,7 @@ class UsersSeeder extends Seeder
 
         User::create([
             'name' => 'Seller4',
-            'email' => 'Seller@mail.ru',
+            'email' => 'Selserler@mail.ru',
             'password' => Hash::make('Seller@mail.ru'),
             'inn' => 7654321,
             'type_id' => 2,
