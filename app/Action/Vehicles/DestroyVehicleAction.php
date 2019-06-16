@@ -5,7 +5,7 @@ namespace App\Action\Vehicles;
 
 use App\Vehicle;
 
-class DestroyVehicle
+class DestroyVehicleAction
 {
     private $vehicle;
 
