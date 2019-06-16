@@ -142,7 +142,7 @@
                             <div class="card-header">
                                 Одобрение поставок
                             </div>
-                            <a href="{{route('customer.productsInWarehouses')}}">
+                            <a href="{{route('customer.approvalOfDeliveries')}}">
                                 <div class="card-body">
                                     <div class="col-md-3">
 

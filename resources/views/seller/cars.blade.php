@@ -8,15 +8,27 @@
             <div class="col-md-8">
                 <div class="row justify-content-center">
                     <h3>
-                        Информация о транспорте
+                        Информация о транспорте:
                     </h3>
                 </div>
-                <div>
+                <?php
+                $storages = [[
+                    'name' => '1',
+                    'cars' => [
+                        ['name' => 'Reno C432HK', 'ves' => 1000, 'ob' => 500],
+                        ['name' => 'Reno C412ЕK', 'ves' => 500, 'ob' => 200]]], [
+                    'name' => '2',
+                    'cars' => [
+                        ['name' => 'Reno C432HK', 'ves' => 1000, 'ob' => 500],
+                    ]]];
+
+                ?>
+                <div class="mb-3">
                     @foreach($storages as $storage)
                         <?php
-                        $cars = \App\Vehicle::all()->where('storage_id', '=', $storage->id)
+                        //$cars = \App\Vehicle::all()->where('storage_id', '=', $storage->id)
                         ?>
-                        <h2>Адрес: <i></i></h2>
+                        <h2 class="mb-3">Склад: <i>{{$storage['name']}}</i></h2>
                         <table class="table">
                             <thead class="thead-inverse">
                             <tr>
@@ -29,11 +41,13 @@
                             </thead>
                             <tbody>
                             <?php $counter = 0; ?>
-                            @foreach($cars as $car)
+                            @foreach($storage['cars'] as $car)
                                 <tr>
                                     <td>{{++$counter}}</td>
-                                    <td>{{$car->name}}</td>
-                                    <td>{{$car->tonnage}}</td>
+                                    <td>{{$car['name']}}</td>
+                                    <td>{{$car['ves']}}</td>
+                                    <td>{{$car['ob']}}</td>
+
                                     <td><a class="btn btn-primary" href="">Редактировать</a><a class="btn btn-danger"
                                                                                                href="">Удалить</a>
                                     </td>
@@ -41,45 +55,42 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <form method="post">
+                            @csrf
+                            <div class="form-row justify-content-center">
+
+
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="tonnage">{{ __('Грузоподъемность') }}</label>
+                                            <input type="text" class="form-control" id="tonnage">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="tonnage">{{ __('Наимнование') }}</label>
+                                            <input type="text" class="form-control" id="tonnage">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="tonnage">{{ __('Объем') }}</label>
+                                            <input type="text" class="form-control" id="tonnage">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <button type="submit" class="btn btn-primary float-right mb-3">Ввод</button>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" class="form-control" id="storage_id" value="">
+                            </div>
+                        </form>
                     @endforeach
                 </div>
-                <form method="post">
-                    @csrf
-                    <div class="form-row justify-content-center">
-
-
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="form-group col-md-5">
-                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
-                                    <input type="text" class="form-control" id="tonnage">
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
-                                    <input type="text" class="form-control" id="tonnage">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="form-group col-md-5">
-                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
-                                    <input type="text" class="form-control" id="tonnage">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group col-md-5">
-                            <input type="text" class="form-control" id="tonnage">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <br>
-                            <button type="submit" class="btn btn-primary">Создать</button>
-                        </div>
-                        <input type="hidden" class="form-control" id="storage_id" value="">
-                    </div>
-                </form>
             </div>
         </div>
     </div>

@@ -7,15 +7,16 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="m-3">
-                    <?php $pruducts = [['name' => 'Jacobs', 'category' => 'Кофе'],
-                        ['name' => 'Naskafe', 'category' => 'Кофе'], ['name' => 'Вафли "павлин"', 'category' => 'Сладости'],
-                        ['name' => 'Вафли "креатив"', 'category' => 'Сладости'], ['name' => 'Вафли "Щука"', 'category' => 'Рыба']]?>
+                    <?php $pruducts = [['name' => 'Jacobs', 'category' => 'Кофе', 'store' => '1', 'count' => 100],
+                        ['name' => 'Вафли "креатив"', 'category' => 'Сладости', 'store' => '1', 'count' => 200]]?>
                     <table class="table">
                         <thead class="thead-inverse">
                         <tr>
                             <th>#</th>
                             <th>Наименование</th>
                             <th>Категория</th>
+                            <th>Место</th>
+                            <th>Количество</th>
                             <th></th>
                         </tr>
                         </thead>
@@ -26,6 +27,8 @@
                                 <td>{{++$counter}}</td>
                                 <td>{{$pruduct['name']}}</td>
                                 <td>{{$pruduct['category']}}</td>
+                                <td>{{$pruduct['store']}}</td>
+                                <td>{{$pruduct['count']}}</td>
                                 <td><a class="btn btn-primary" href="">Редактировать</a><a class="btn btn-danger"
                                                                                            href="">Удалить</a>
                                 </td>
@@ -50,7 +53,7 @@
                             <input type="text" class="form-control" id="name">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="mass">масса товара</label>
+                            <label for="mass">Масса товара</label>
                             <input type="number" class="form-control" id="mass">
                         </div>
                     </div>
@@ -72,8 +75,16 @@
                     </div>
                     <div class="form-row justify-content-center block">
                         <div class="form-group col-md-10">
+                            <label for="category_id">Склад</label>
+                            <select id="category_id" class="form-control" name="subcategory_id">
+                                <option selected>#1</option>
+                                <option>...</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center block">
+                        <div class="form-group col-md-10">
                             <br>
-                            <input type="file" multiple name="file[]" class="btn btn-primary">
                             <button type="submit" class="btn btn-primary float-right">Создать</button>
                         </div>
                         <div class="form-group col-md-3">

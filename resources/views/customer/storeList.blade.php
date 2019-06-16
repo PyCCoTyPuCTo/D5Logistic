@@ -13,7 +13,7 @@
                     <th scope="col">Наименование</th>
                     <th scope="col">Улица</th>
                     <th scope="col"><a class="btn btn-primary"
-                                       href="{{route('customer.addMarket',['id'=>$shop->id])}}">Добавить</a>
+                                       href="{{route('customer.addMarket')}}">Добавить</a>
                     </th>
 
                 </tr>
