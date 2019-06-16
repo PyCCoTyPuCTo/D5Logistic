@@ -16,7 +16,7 @@
                         <thead class="thead-inverse">
                         <tr>
                             <th>#</th>
-                            <th>номер</th>
+                            <th>Номер</th>
                             <th>Название товара</th>
                             <th>Масса</th>
                             <th>Категория</th>

@@ -117,7 +117,7 @@
                                     место расположение на карте.</p>
 
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Add') }}
+                                    {{ __('Ввод') }}
                                 </button>
 
                                 <script>
