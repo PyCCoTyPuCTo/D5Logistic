@@ -11,7 +11,7 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Улица</th>
-                    <th scope="col"></th>
+                    <th scope="col"><a class="btn btn-primary" href="{{route('customer.addWarehouse')}}">Добавить</a></th>
 
                 </tr>
                 </thead>

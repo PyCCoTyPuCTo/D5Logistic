@@ -20,6 +20,7 @@ class UpdateStorageAction
     public function update()
     {
         $this->storage->update($this->data->all());
+        $this->storage->save();
     }
 
 }

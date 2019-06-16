@@ -26,7 +26,7 @@ Route::group(['prefix' => 'jane'], function () {
     Route::get('/product', function () {
         return view('seller/add_product');
     });
-  
+
     Route::get('/cars', function () {
         return view('seller/cars');
     });
@@ -74,16 +74,14 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'seller'], function () {
         Route::group(['middleware' => 'seller'], function () {
-            Route::get('warehouses', function () {
-                return 'seller.warehouses';
-            })->name('seller.warehouses');
+            Route::get('warehouses', 'StoragesController@warehouses')->name('seller.warehouses');
 
             Route::get('add_warehouse', function () {
                 return view('seller.addWarehouse');
             })->name('customer.addWarehouse');
-            Route::get('update_warehouse/{id}', 'DealerController@getUpdatePage')->name('customer.updateWarehouse');
-            Route::post('update_warehouse/{id}', 'ShopController@update')->name('customer.updateWarehousePost');
-            Route::post('add_warehouse', 'ShopController@create')->name('customer.addWarehousePost');
+            Route::get('update_warehouse/{id}', 'StoragesController@getUpdatePage')->name('customer.updateWarehouse');
+            Route::post('update_warehouse/{id}', 'StoragesController@update')->name('customer.updateWarehousePost');
+            Route::post('add_warehouse', 'StoragesController@create')->name('customer.addWarehousePost');
 
 
             Route::get('products', function () {

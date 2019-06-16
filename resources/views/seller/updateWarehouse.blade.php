@@ -9,5 +9,7 @@
         <input type="hidden" id="geolocation_id" class="form-control"
                name="geolocation_id" value="{{$geolocation_id}}">
     @endif
+    <input type="hidden" name="user_id" value="{{Auth::id()}}">
+
 
 @endsection
