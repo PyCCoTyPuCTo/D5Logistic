@@ -26,19 +26,22 @@ Route::group(['prefix' => 'jane'], function () {
     Route::get('/product', function () {
         return view('seller/add_product');
     });
+    Route::get('/cars', function () {
+        return view('seller/cars');
+    });
 });
 
 Route::group(['prefix' => 'andrey'], function () {
-    Route::get('/', function () {
-        return 'asdasd';
+    Route::get('/stock', function () {
+        return view('addStore');
     });
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 //---------------загрузка фото на сервер-------------------------------------------------
-Route::get('upload',['as' => 'upload_form', 'uses' => 'UploadController@getForm']);
-Route::post('upload',['as' => 'upload_file','uses' => 'UploadController@upload']);
+Route::get('upload', ['as' => 'upload_form', 'uses' => 'UploadController@getForm']);
+Route::post('upload', ['as' => 'upload_file', 'uses' => 'UploadController@upload']);
 //----------------------------------------------------------------------------------------
 
 Route::group(['middleware' => 'auth'], function () {
@@ -53,9 +56,17 @@ Route::group(['middleware' => 'auth'], function () {
                 return 'today_orders';
             })->name('customer.todayOrders');
 
-            Route::get('markets', function () {
-                return 'markets';
-            })->name('customer.markets');
+            Route::get('markets', 'ShopController@shops')->name('customer.markets');
+
+            Route::get('add_market', function () {
+                return view('addStore');
+            })->name('customer.addMarket');
+
+            Route::get('update_market/{id}', 'ShopController@getUpdatePage')->name('customer.updateMarket');
+            Route::post('update_market/{id}', 'ShopController@update')->name('customer.updateMarketPost');
+
+
+            Route::post('add_market', 'ShopController@create')->name('customer.addMarketPost');
         });
     });
 
@@ -65,6 +76,14 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('warehouses', function () {
                 return 'warehouses';
             })->name('seller.warehouses');
+
+            Route::get('add_warehouse', function () {
+                return 'add_warehouse';
+            })->name('seller.addWarehouse');
+
+            Route::post('add_warehouse', function () {
+                return 'add_warehouse';
+            })->name('seller.addWarehousePost');
 
             Route::get('products', function () {
                 return 'products';
