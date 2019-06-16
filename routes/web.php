@@ -30,6 +30,22 @@ Route::group(['prefix' => 'jane'], function () {
     Route::get('/cars', function () {
         return view('seller/cars');
     });
+
+    Route::get('/products', function () {
+        return view('seller/products');
+    });
+
+    Route::get('/route_for_day', function () {
+        return view('seller/route_for_day');
+    });
+
+    Route::get('/delivery_approval', function () {
+        return view('seller/delivery_approval');
+    });
+
+    Route::get('/products_in_warehouse', function () {
+        return view('seller/products_in_warehouse');
+    });
 });
 
 Route::group(['prefix' => 'andrey'], function () {

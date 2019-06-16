@@ -71,7 +71,6 @@
 
 
                         <div class="form-group col-md-5">
-                            <label for="tonnage">{{ __('') }}</label>
                             <input type="text" class="form-control" id="tonnage">
                         </div>
                         <div class="form-group col-md-3">
