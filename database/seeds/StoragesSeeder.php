@@ -1,9 +1,8 @@
 <?php
 
-use App\TypeUser;
 use Illuminate\Database\Seeder;
 
-class TypeUsersSeeder extends Seeder
+class StoragesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,7 +11,10 @@ class TypeUsersSeeder extends Seeder
      */
     public function run()
     {
-        TypeUser::create(['name' => 'Customer']);
-        TypeUser::create(['name' => 'Seller']);
+        DB::table('storage')->insert([
+            'user_id' => 2,
+            'geolocation_id' => 1
+        ]);
+
     }
 }
