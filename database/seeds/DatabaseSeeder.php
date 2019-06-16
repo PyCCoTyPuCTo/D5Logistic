@@ -12,7 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        TypeUser::create(['name' => 'Customer']);
-        TypeUser::create(['name' => 'Seller']);
+        $this->call(TypeUsersSeeder::class);
+        $this->call(UsersSeeder::class);
+        $this->call(GeolocationSeeder::class);
     }
 }
