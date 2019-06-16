@@ -101,23 +101,22 @@ Route::group(['middleware' => 'auth'], function () {
 
 
             Route::get('products', function () {
-                return 'products';
+                return view('seller.products');
             })->name('customer.products');
 
-            Route::get('vehicles', function () {
-                return 'vehicles';
-            })->name('customer.vehicles');
+            Route::get('vehicles', 'VehicleController@getVehicleList')->name('customer.vehicles');
+
 
             Route::get('itinerary', function () {
                 return 'itinerary';
             })->name('customer.itinerary');
 
             Route::get('products_in_warehouses', function () {
-                return 'productsInWarehouses';
+                return view('seller.productsInStreg');
             })->name('customer.productsInWarehouses');
 
             Route::get('approval_of_deliveries', function () {
-                return 'approvalOfDeliveries';
+                return view('seller.orders');
             })->name('customer.approvalOfDeliveries');
         });
     });

@@ -13,7 +13,8 @@
                     <th scope="col">Наименование</th>
                     <th scope="col">Улица</th>
                     <th scope="col"><a class="btn btn-primary"
-                                       href="{{route('customer.addMarket',['id'=>$shop->id])}}">Добавить</a></th>
+                                       href="{{route('customer.addMarket')}}">Добавить</a>
+                    </th>
 
                 </tr>
                 </thead>
@@ -24,9 +25,11 @@
                     <tr>
                         <th>{{++$counter}}</th>
                         <td>{{$shop->name}}</td>
-                        <td>Арес</td>
+                        <td>Адрес</td>
                         <td><a class="btn btn-primary"
                                href="{{route('customer.updateMarket',['id'=>$shop->id])}}">Редактировать</a>
+                            <a class="btn btn-danger"
+                               href="{{route('customer.addMarket',['id'=>$shop->id])}}">Удалить</a>
                         </td>
                     </tr>
                 @endforeach
