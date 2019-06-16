@@ -11,7 +11,7 @@ class DestroyVehicle
 
     public function __construct($id)
     {
-        $this->vehicle = Vehicle::find($id)->first();
+        $this->vehicle = Vehicle::findOrFail($id)->get();
     }
 
     public function destroy()

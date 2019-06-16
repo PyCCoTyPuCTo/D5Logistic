@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/test/DC', 'tmpDealerController@test');
+
+Route::post('/customer/addshop', 'ShopController@create');
