@@ -44,7 +44,7 @@ class ProductController extends Controller
         return Product::find($id);
     }
 
-    public function getAllFromStorage($id) {
-        return $productFromStorage = ProductStorage::where('storage_id', $id);
+    public function getAll() {
+        return Product::all();
     }
 }
