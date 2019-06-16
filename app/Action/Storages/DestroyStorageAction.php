@@ -5,7 +5,7 @@ namespace App\Action\Storages;
 
 use App\Storage;
 
-class DestroyAction
+class DestroyStorageAction
 {
     private $storage;
 

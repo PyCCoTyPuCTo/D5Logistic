@@ -6,7 +6,7 @@ namespace App\Action\Storages;
 use App\Storage;
 use Illuminate\Http\Request;
 
-class UpdateAction
+class UpdateStorageAction
 {
     private $data;
     private $storage;
@@ -20,6 +20,7 @@ class UpdateAction
     public function update()
     {
         $this->storage->update($this->data->all());
+        $this->storage->save();
     }
 
 }
