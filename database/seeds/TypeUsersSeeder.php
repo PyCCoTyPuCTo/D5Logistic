@@ -2,7 +2,6 @@
 
 use App\TypeUser;
 use Illuminate\Database\Seeder;
-use App\TypeUser;
 
 class TypeUsersSeeder extends Seeder
 {
