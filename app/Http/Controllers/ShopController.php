@@ -17,7 +17,8 @@ class ShopController extends Controller
      * @param Request $request
      * @return int
      */
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $message = [
             'name.required' => 'Название точки обязательно',
             'name.string' => 'Название должна быть строкой',
@@ -26,19 +27,18 @@ class ShopController extends Controller
             'latitude' => 'Ширина должна быть числом'
         ];
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:300'
 //            'name' => 'required|string|max:300',
 //            'longitude' => 'required|regex:/^\d+(\.\d{1,2})?$/\'',
 //            'latitude' => 'required|regex:/^\d+(\.\d{1,2})?$/\''
         ], $message);
-        if ($validator->fails()){
+        if ($validator->fails()) {
             //TODO руты настроить
-//            return redirect()
-//                ->route('customer.shop')
-//                ->withErrors($validator)
-//                ->exceptInput();
-            return 403;
+            return redirect()
+                ->route('customer.addMarket')
+                ->withErrors($validator)
+                ->exceptInput();
         }
         $newData = [];
         $newGeo = new CreateGeoAction(
@@ -50,7 +50,7 @@ class ShopController extends Controller
         $newShop = new CreateAction($newData);
         $newShop->create();
         //TODO Андрей, настрой редирект по рутам по всем методам
-        //return redirect();
+        return redirect('customer.addMarketPost');
     }
 
     /**
@@ -58,20 +58,21 @@ class ShopController extends Controller
      * @param $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $message = [
             'name.required' => 'Название точки обязательно',
             'name.string' => 'Название должна быть строкой',
             'name.max' => 'Превышин лимит в 300 символов'
         ];
 
-        $validator = Validator::make($request->all(),[
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:300',
             'user_id' => 'required|integer',
             'geolocation_id' => 'required|integer'
         ], $message);
 
-        if ($validator->fails()){
+        if ($validator->fails()) {
             return redirect()
                 ->route('customer.shop')
                 ->withErrors($validator)
@@ -82,7 +83,8 @@ class ShopController extends Controller
         $updateShop->update();
     }
 
-    public function destroy($id) {
+    public function destroy($id)
+    {
         $shop = new DestroyAction($id);
         $shop->destroy();
     }
