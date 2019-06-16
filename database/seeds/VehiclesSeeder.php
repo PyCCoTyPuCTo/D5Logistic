@@ -11,24 +11,25 @@ class VehiclesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('vehicles')->insert([
+        DB::table('vehicle')->insert([
             'storage_id' => 1,
-            'tonnage' => 500
+            'tonnage' => 50,
+            'capacity' => 50,
+            'name' => 'car1'
         ]);
 
-        DB::table('vehicles')->insert([
-            'storage_id' => 2,
-            'tonnage' => 250
+        DB::table('vehicle')->insert([
+            'storage_id' => 1,
+            'tonnage' => 50,
+            'capacity' => 50,
+            'name' => 'car2'
         ]);
 
-        DB::table('vehicles')->insert([
-            'storage_id' => 3,
-            'tonnage' => 100
-        ]);
-
-        DB::table('vehicles')->insert([
-            'storage_id' => 4,
-            'tonnage' => 50
+        DB::table('vehicle')->insert([
+            'storage_id' => 1,
+            'tonnage' => 50,
+            'capacity' => 50,
+            'name' => 'car3'
         ]);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Shop;
 use Illuminate\Database\Seeder;
 
 class ShopSeeder extends Seeder
@@ -11,16 +12,16 @@ class ShopSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('shop')->insert([
-            'name' => 'Магазин 1',
-            'user_id' => 2,
-            'geolocation_id' => 1
+        Shop::create([
+            'name' => 'shop1',
+            'user_id' => 1,
+            'geolocation_id' => 2
         ]);
 
-        DB::table('shop')->insert([
-            'name' => 'Магазин 2',
-            'user_id' => 2,
-            'geolocation_id' => 1
+        Shop::create([
+            'name' => 'shop1',
+            'user_id' => 3,
+            'geolocation_id' => 3
         ]);
     }
 }
