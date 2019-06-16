@@ -1,5 +1,6 @@
 <?php
 
+use App\Order;
 use Illuminate\Database\Seeder;
 
 class OrdersSeeder extends Seeder
@@ -11,27 +12,27 @@ class OrdersSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('orders')->insert([
+        Order::create([
             'shop_id' => 1,
-            'storage_id' => 3,
-            'date' => '2019-06-03'
+            'storage_id' => 1,
+            'date' => '2019-06-20'
         ]);
 
-        DB::table('orders')->insert([
+        Order::create([
             'shop_id' => 2,
-            'storage_id' => 3,
-            'date' => '2019-06-03'
+            'storage_id' => 1,
+            'date' => '2019-06-20'
         ]);
 
-        DB::table('orders')->insert([
+        Order::create([
             'shop_id' => 1,
-            'storage_id' => 4,
-            'date' => '2019-06-04'
+            'storage_id' => 1,
+            'date' => '2019-06-20'
         ]);
 
-        DB::table('orders')->insert([
+        Order::create([
             'shop_id' => 2,
-            'storage_id' => 4,
+            'storage_id' => 1,
             'date' => '2019-06-04'
         ]);
     }
