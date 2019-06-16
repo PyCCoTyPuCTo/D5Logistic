@@ -66,6 +66,7 @@ class tmpDealerController extends Controller
     {
         $moveProduct = new \App\Action\StoragesProducts\MoveAction($product_id, $fromStorage_id, $toStorage_id, $count);
         $moveProduct->move();
+
     }
 
     public function loadProductToStorage($storage_id, $product_id, $count)
