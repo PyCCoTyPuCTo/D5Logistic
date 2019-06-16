@@ -45,23 +45,23 @@ class UsersSeeder extends Seeder
         ]);
 
         User::create([
-            'name' => 'Customer4',
+            'name' => 'ООО Алмаз',
             'email' => 'Customer4@mail.ru',
             'password' => Hash::make('Customer4@mail.ru'),
-            'inn' => 6563346,
+            'inn' => 257129875,
             'type_id' => 1,
-            'phone' => '7654321',
-            'address' => 'Customer address2'
+            'phone' => '79781234567',
+            'address' => 'ул Ген. Жидилова 26А'
         ]);
 
         User::create([
-            'name' => 'Seller1',
+            'name' => 'ИП Семенова И.О.',
             'email' => 'Seller@mail.ru',
             'password' => Hash::make('Seller@mail.ru'),
-            'inn' => 7654321,
+            'inn' => 257129875,
             'type_id' => 2,
-            'phone' => '7654321',
-            'address' => 'Seller'
+            'phone' => '79781234567',
+            'address' => 'просп. Острякова 22'
         ]);
 
         User::create([

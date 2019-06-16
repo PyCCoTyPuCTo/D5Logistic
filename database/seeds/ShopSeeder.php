@@ -13,8 +13,8 @@ class ShopSeeder extends Seeder
     public function run()
     {
         Shop::create([
-            'name' => 'shop1',
-            'user_id' => 5,
+            'name' => 'Тантал',
+            'user_id' => 4,
             'geolocation_id' => 4
         ]);
 
@@ -34,12 +34,6 @@ class ShopSeeder extends Seeder
             'name' => 'shop1',
             'user_id' => 8,
             'geolocation_id' => 7
-        ]);
-
-        Shop::create([
-            'name' => 'shop1',
-            'user_id' => 5,
-            'geolocation_id' => 8
         ]);
     }
 }
