@@ -1,7 +1,7 @@
 @extends('layouts.addGeoData')
 @section('formConfig')
     method="POST"
-    action="{{ route('customer.updateMarketPost') }}"
+    action="{{ route('customer.updateMarketPost',['id'=>$id]) }}"
 @endsection
 @section('inputs')
 
@@ -21,14 +21,10 @@
         </div>
     </div>
 
-    @if(isset($id))
-        <input type="hidden" id="id" class="form-control"
-               name="id">
-    @endif
 
     @if(isset($geolocation_id))
         <input type="hidden" id="geolocation_id" class="form-control"
-               name="geolocation_id">
+               name="geolocation_id" value="{{$geolocation_id}}">
     @endif
 
 @endsection

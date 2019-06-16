@@ -79,7 +79,7 @@ class ShopController extends Controller
         $coordinats = ['longitude' => $geolocation->longitude, 'latitude' => $geolocation->latitude];
 
         $name = $shop->name;
-        return view('customer.updateStore', ['coordinats' => $coordinats, 'id' => $shop->id, 'geolocation_id' => $geolocation->id, 'name' => $name]);
+        return view('customer.updateStore', ['coordinats' => $coordinats, 'id' => $shop->id, 'geolocation_id' => $shop->geolocation_id, 'name' => $name]);
     }
 
     /**
@@ -99,14 +99,14 @@ class ShopController extends Controller
 
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:300',
-            'user_id' => 'required|integer',
-            'longitude' => 'Долгота должна быть числом',
-            'latitude' => 'Ширина должна быть числом'
+            //'user_id' => 'required|integer',
+            //'longitude' => 'Долгота должна быть числом',
+            //'latitude' => 'Ширина должна быть числом'
         ], $message);
 
         if ($validator->fails()) {
             return redirect()
-                ->route('customer.shop')
+                ->route('customer.updateMarket', ['id' => $id])
                 ->withErrors($validator)
                 ->exceptInput();
         }
@@ -114,12 +114,13 @@ class ShopController extends Controller
         $newGeo = new UpdateGeoAction(
             $request->get('longitude'),
             $request->get('latitude'),
-            $request->get('id'));
+            $request->get('geolocation_id'));
         $newData['name'] = $request->get('name');
         $newData['user_id'] = Auth::id();
         $newData['geolocation_id'] = $newGeo->update();
         $updateShop = new UpdateAction($newData, $id);
         $updateShop->update();
+        return redirect()->route('customer.markets');
     }
 
     public function destroy($id)

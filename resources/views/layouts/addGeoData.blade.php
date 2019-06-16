@@ -23,6 +23,11 @@
                 getAddress(myPlacemark.geometry.getCoordinates());
             });
 
+            $(() => {
+                $('#longitude').val({{$coordinats['longitude']}});
+                $('#latitude').val({{$coordinats['latitude']}});
+            });
+
             @endif
 
             // Слушаем клик на карте.
