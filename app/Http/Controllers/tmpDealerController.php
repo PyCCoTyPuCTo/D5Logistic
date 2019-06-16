@@ -59,7 +59,41 @@ class tmpDealerController extends Controller
 
 //        $this->loadProductToStorage(2, 6, 100);
 //        $this->moveProduct(6, 2, 3, 50);
-        return view('/home');
+
+        $order = new Request();
+        $order['shop_id'] = 1;
+        $order['storage_id'] = 1;
+        $order['date'] = '2019-06-03';
+
+//        $this->createOrder($order);
+
+        $productOrder = new Request();
+        $productOrder['order_id'] = 1;
+        $productOrder['product_id'] = 1;
+        $productOrder['count'] = 10;
+
+//        $this->createProductOrder($productOrder);
+//        $this->destroyProductOrder(1, 1);
+
+        return view('welcome');
+    }
+
+    public function destroyProductOrder($order_id, $product_id)
+    {
+        $destroyProductOrder = new \App\Action\ProductsOrders\DestroyProductsOrdersAction($order_id, $product_id);
+        $destroyProductOrder->destroy();
+    }
+
+    public function createProductOrder(Request $request)
+    {
+        $createProductOrder = new \App\Action\ProductsOrders\CreateProductsOrdersAction($request);
+        $createProductOrder->create();
+    }
+
+    public function createOrder(Request $request)
+    {
+        $createOrder = new \App\Action\Orders\CreateOrdersAction($request);
+        $createOrder->create();
     }
 
     public function moveProduct($product_id, $fromStorage_id, $toStorage_id, $count)
