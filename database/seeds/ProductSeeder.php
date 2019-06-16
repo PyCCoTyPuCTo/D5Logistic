@@ -13,27 +13,16 @@ class ProductSeeder extends Seeder
     public function run()
     {
         Product::create([
-           'name' => 'товар 1',
+           'name' => 'Бодрин',
            'subcategory_id' => 1,
-           'mass' => 50
+           'mass' => 250
         ]);
 
         Product::create([
-            'name' => 'товар 2',
+            'name' => 'Белая карта',
             'subcategory_id' => 1,
-            'mass' => 10
+            'mass' => 500
         ]);
 
-        Product::create([
-            'name' => 'товар 3',
-            'subcategory_id' => 1,
-            'mass' => 40
-        ]);
-
-        Product::create([
-            'name' => 'товар 4',
-            'subcategory_id' => 1,
-            'mass' => 40
-        ]);
-    }
+       }
 }
