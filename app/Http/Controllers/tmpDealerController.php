@@ -77,7 +77,7 @@ class tmpDealerController extends Controller
      */
     public function createProduct(Request $request)
     {
-        $createProduct = new \App\Action\Products\CreateAction($request);
+        $createProduct = new \App\Action\Products\CreateProductAction($request);
         $createProduct->create();
     }
 
@@ -87,7 +87,7 @@ class tmpDealerController extends Controller
      */
     public function updateProduct(Request $request, $product)
     {
-        $updateProduct = new \App\Action\Products\UpdateAction($request, $product);
+        $updateProduct = new \App\Action\Products\UpdateProductAction($request, $product);
         $updateProduct->update();
     }
 
@@ -96,7 +96,7 @@ class tmpDealerController extends Controller
      */
     public function destroyProduct($product)
     {
-        $destroyProduct = new \App\Action\Products\DestroyAction($product);
+        $destroyProduct = new \App\Action\Products\DestroyProductAction($product);
         $destroyProduct->destroy();
     }
 
@@ -105,7 +105,7 @@ class tmpDealerController extends Controller
      */
     public function createStorage(Request $request)
     {
-        $createStorage = new \App\Action\Storages\CreateAction($request);
+        $createStorage = new \App\Action\Storages\CreateStorageAction($request);
         $createStorage->create();
     }
 
@@ -115,7 +115,7 @@ class tmpDealerController extends Controller
      */
     public function updateStorage(Request $request, $storage)
     {
-        $updateStorage = new \App\Action\Storages\UpdateAction($request, $storage);
+        $updateStorage = new \App\Action\Storages\UpdateStorageAction($request, $storage);
         $updateStorage->update();
     }
 
@@ -124,7 +124,7 @@ class tmpDealerController extends Controller
      */
     public function destroyStorage($storage)
     {
-        $destroyStorage = new \App\Action\Storages\DestroyAction($storage);
+        $destroyStorage = new \App\Action\Storages\DestroyStorageAction($storage);
         $destroyStorage->destroy();
     }
 
@@ -133,7 +133,7 @@ class tmpDealerController extends Controller
      */
     public function createVehicle(Request $request)
     {
-        $createVehicle = new \App\Action\Vehicles\CreateVehicle($request);
+        $createVehicle = new \App\Action\Vehicles\CreateVehicleAction($request);
         $createVehicle->create();
     }
 
@@ -143,7 +143,7 @@ class tmpDealerController extends Controller
      */
     public function updateVehicle(Request $request, $vehicle)
     {
-        $updateVehicle = new \App\Action\Vehicles\UpdateVehicle($request, $vehicle);
+        $updateVehicle = new \App\Action\Vehicles\UpdateVehicleAction($request, $vehicle);
         $updateVehicle->update();
     }
 
@@ -152,7 +152,7 @@ class tmpDealerController extends Controller
      */
     public function destroyVehicle($vehicle)
     {
-        $destroyVehicle = new \App\Action\Vehicles\DestroyVehicle($vehicle);
+        $destroyVehicle = new \App\Action\Vehicles\DestroyVehicleAction($vehicle);
         $destroyVehicle->destroy();
     }
 
@@ -162,7 +162,7 @@ class tmpDealerController extends Controller
      */
     public function moveVehicleToStorage($vehicle, $storage)
     {
-        $moveVehicle = new \App\Action\Vehicles\MoveToStorage($vehicle, $storage);
+        $moveVehicle = new \App\Action\Vehicles\MoveToStorageAction($vehicle, $storage);
         $moveVehicle->move();
     }
 
