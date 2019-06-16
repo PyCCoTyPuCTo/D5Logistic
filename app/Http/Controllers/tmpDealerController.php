@@ -27,7 +27,7 @@ class tmpDealerController extends Controller
         $product['name'] = '123';
         $product['mass'] = 20;
 
-//        $this->createProduct($product);
+//        $this->createProduct($product, 3);
 //        $this->updateProduct($product, 1);
 //        $this->destroyProduct(1);
 
@@ -56,7 +56,22 @@ class tmpDealerController extends Controller
 //        $this->addProductToStorages(2, [0 => ['storage_id' => 2, 'count' => 20]]);
 
 //        $this->moveVehicleToStorage(2, 3);
+
+//        $this->loadProductToStorage(2, 6, 100);
+//        $this->moveProduct(6, 2, 3, 50);
         return view('/home');
+    }
+
+    public function moveProduct($product_id, $fromStorage_id, $toStorage_id, $count)
+    {
+        $moveProduct = new \App\Action\StoragesProducts\MoveAction($product_id, $fromStorage_id, $toStorage_id, $count);
+        $moveProduct->move();
+    }
+
+    public function loadProductToStorage($storage_id, $product_id, $count)
+    {
+        $loadToStorage = new \App\Action\StoragesProducts\LoadToStorage($storage_id, $product_id, $count);
+        $loadToStorage->load();
     }
 
     public function create(Request $request)
@@ -75,9 +90,9 @@ class tmpDealerController extends Controller
      * @param Request $request: product
      * @param $id: user id
      */
-    public function createProduct(Request $request)
+    public function createProduct(Request $request, $id)
     {
-        $createProduct = new \App\Action\Products\CreateAction($request);
+        $createProduct = new \App\Action\Products\CreateAction($request, $id);
         $createProduct->create();
     }
 
