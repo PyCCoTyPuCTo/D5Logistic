@@ -88,9 +88,8 @@ Route::group(['middleware' => 'auth'], function () {
                 return 'products';
             })->name('customer.products');
 
-            Route::get('vehicles', function () {
-                return 'vehicles';
-            })->name('customer.vehicles');
+            Route::get('vehicles', 'VehicleController@getVehicleList')->name('customer.vehicles');
+
 
             Route::get('itinerary', function () {
                 return 'itinerary';

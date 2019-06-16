@@ -3,7 +3,7 @@
 
 @endsection
 @section('content')
-    <div class="container" >
+    <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="row justify-content-center">
@@ -12,50 +12,73 @@
                     </h3>
                 </div>
                 <div>
-                    <table class="table">
-                        <thead class="thead-inverse">
-                        <tr>
-                            <th>#</th>
-                            <th>номер</th>
-                            <th>Весовая вместимость</th>
-                            <th>Объем</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row"></th>
-                            <td></td>
-                        </tr>
-
-                        </tbody>
-                    </table>
+                    @foreach($storages as $storage)
+                        <?php
+                        $cars = \App\Vehicle::all()->where('storage_id', '=', $storage->id)
+                        ?>
+                        <h2>Адрес: <i></i></h2>
+                        <table class="table">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>#</th>
+                                <th>Наименование</th>
+                                <th>Весовая вместимость</th>
+                                <th>Объем</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php $counter = 0; ?>
+                            @foreach($cars as $car)
+                                <tr>
+                                    <td>{{++$counter}}</td>
+                                    <td>{{$car->name}}</td>
+                                    <td>{{$car->tonnage}}</td>
+                                    <td><a class="btn btn-primary" href="">Редактировать</a><a class="btn btn-danger"
+                                                                                               href="">Удалить</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @endforeach
                 </div>
                 <form method="post">
                     @csrf
                     <div class="form-row justify-content-center">
 
 
-                        <label for="tonnage" class="col-md-4 col-form-label text-md-right">{{ __('Tonnage') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="tonnage" type="text" class="form-control @error('password') is-invalid @enderror" name="tonnage">
-
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
+                                    <input type="text" class="form-control" id="tonnage">
+                                </div>
+                                <div class="form-group col-md-5">
+                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
+                                    <input type="text" class="form-control" id="tonnage">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="row">
+                                <div class="form-group col-md-5">
+                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
+                                    <input type="text" class="form-control" id="tonnage">
+                                </div>
+                            </div>
                         </div>
 
 
                         <div class="form-group col-md-5">
-                            <label for="tonnage">{{ __('Type') }}</label>
+                            <label for="tonnage">{{ __('') }}</label>
                             <input type="text" class="form-control" id="tonnage">
                         </div>
                         <div class="form-group col-md-3">
                             <br>
                             <button type="submit" class="btn btn-primary">Создать</button>
                         </div>
+                        <input type="hidden" class="form-control" id="storage_id" value="">
                     </div>
                 </form>
             </div>

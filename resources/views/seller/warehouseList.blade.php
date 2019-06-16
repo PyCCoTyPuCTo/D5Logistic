@@ -23,8 +23,9 @@
                     <tr>
                         <th>{{++$counter}}</th>
                         <td>Арес</td>
-                        <td><a class="btn btn-primary"
+                        <td ><a class="btn btn-primary"
                                href="{{route('customer.updateWarehouse',['id'=>$warehouse->id])}}">Редактировать</a>
+                            <a class="btn btn-danger" href="{{route('customer.addWarehouse')}}">Удалить</a>
                         </td>
                     </tr>
                 @endforeach

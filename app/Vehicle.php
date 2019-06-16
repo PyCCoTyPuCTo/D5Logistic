@@ -2,7 +2,9 @@
 
 namespace App;
 
+use http\Env\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Vehicle extends Model
 {
@@ -11,6 +13,5 @@ class Vehicle extends Model
     protected $fillable = [
         'storage_id', 'tonnage'
     ];
-
 
 }
