@@ -12,9 +12,21 @@ use Illuminate\Support\Facades\Auth;
 class ProductController extends Controller
 {
 
-    public function products()
+    public function products($storage_id)
     {
-        $products = Product::all();
+
+        $products = DB::table('products')
+            ->join('storages_products', function($join){
+                $join->on('products.id', '=', 'storages_products.pruduct_id');
+            })
+            ->join('storage', function($join){
+                $join->on('storages_products.storage_id', '=', 'storage.id');
+            })
+            ->join('users', function($join){
+                $userId = Auth::id();
+                $join->on('storage.user_id', '=', 'users.id')
+                    ->where('users.id', $userId);
+            })->get();
 
         return view('', ['']);
     }
