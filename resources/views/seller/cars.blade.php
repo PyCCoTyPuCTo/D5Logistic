@@ -8,7 +8,7 @@
             <div class="col-md-8">
                 <div class="row justify-content-center">
                     <h3>
-                        Информация о транспорте
+                        Информация о транспорте:
                     </h3>
                 </div>
                 <div>
@@ -41,46 +41,42 @@
                             @endforeach
                             </tbody>
                         </table>
+                        <form method="post">
+                            @csrf
+                            <div class="form-row justify-content-center">
+
+
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="tonnage">{{ __('Грузоподъемность') }}</label>
+                                            <input type="text" class="form-control" id="tonnage">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="tonnage">{{ __('Наимнование') }}</label>
+                                            <input type="text" class="form-control" id="tonnage">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <button type="submit" class="btn btn-primary">Ввод</button>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label for="tonnage">{{ __('Объем') }}</label>
+                                            <input type="text" class="form-control" id="tonnage">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" class="form-control" id="storage_id" value="">
+                            </div>
+                        </form>
                     @endforeach
                 </div>
-                <form method="post">
-                    @csrf
-                    <div class="form-row justify-content-center">
-
-
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="form-group col-md-5">
-                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
-                                    <input type="text" class="form-control" id="tonnage">
-                                </div>
-                                <div class="form-group col-md-5">
-                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
-                                    <input type="text" class="form-control" id="tonnage">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="row">
-                                <div class="form-group col-md-5">
-                                    <label for="tonnage">{{ __('Грузоподъемность') }}</label>
-                                    <input type="text" class="form-control" id="tonnage">
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="form-group col-md-5">
-                            <label for="tonnage">{{ __('') }}</label>
-                            <input type="text" class="form-control" id="tonnage">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <br>
-                            <button type="submit" class="btn btn-primary">Создать</button>
-                        </div>
-                        <input type="hidden" class="form-control" id="storage_id" value="">
-                    </div>
-                </form>
             </div>
         </div>
     </div>
