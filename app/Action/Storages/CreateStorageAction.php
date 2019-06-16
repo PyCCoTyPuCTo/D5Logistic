@@ -5,6 +5,8 @@ namespace App\Action\Storages;
 
 use App\Storage;
 use Illuminate\Http\Request;
+use App\Action\Geolocation\UpdateGeoAction;
+use App\Action\Geolocation\CreateGeoAction;
 
 class CreateStorageAction
 {
@@ -17,6 +19,13 @@ class CreateStorageAction
 
     public function create()
     {
-        Storage::create($this->data->all());
+        $requestData = $this->data->all();
+
+        $newGeo = new CreateGeoAction(
+            $requestData['longitude'],
+            $requestData['latitude']);
+
+        $requestData['geolocation_id'] = $newGeo->create()->id;
+        Storage::create($requestData);
     }
 }

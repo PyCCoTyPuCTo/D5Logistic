@@ -26,7 +26,7 @@ Route::group(['prefix' => 'jane'], function () {
     Route::get('/product', function () {
         return view('seller/add_product');
     });
-  
+
     Route::get('/cars', function () {
         return view('seller/cars');
     });
@@ -60,7 +60,7 @@ Route::group(['middleware' => 'auth'], function () {
             Route::get('markets', 'ShopController@shops')->name('customer.markets');
 
             Route::get('add_market', function () {
-                return view('addStore');
+                return view('customer.addStore');
             })->name('customer.addMarket');
 
             Route::get('update_market/{id}', 'ShopController@getUpdatePage')->name('customer.updateMarket');
@@ -74,17 +74,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'seller'], function () {
         Route::group(['middleware' => 'seller'], function () {
-            Route::get('warehouses', function () {
-                return 'warehouses';
-            })->name('seller.warehouses');
+            Route::get('warehouses', 'StoragesController@warehouses')->name('seller.warehouses');
 
             Route::get('add_warehouse', function () {
-                return 'add_warehouse';
-            })->name('seller.addWarehouse');
+                return view('seller.addWarehouse');
+            })->name('customer.addWarehouse');
+            Route::get('update_warehouse/{id}', 'StoragesController@getUpdatePage')->name('customer.updateWarehouse');
+            Route::post('update_warehouse/{id}', 'StoragesController@update')->name('customer.updateWarehousePost');
+            Route::post('add_warehouse', 'StoragesController@create')->name('customer.addWarehousePost');
 
-            Route::post('add_warehouse', function () {
-                return 'add_warehouse';
-            })->name('seller.addWarehousePost');
 
             Route::get('products', function () {
                 return 'products';
