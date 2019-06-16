@@ -6,7 +6,10 @@ use App\Action\Geolocation\CreateGeoAction;
 use App\Action\Shop\CreateAction;
 use App\Action\Shop\DestroyAction;
 use App\Action\Shop\UpdateAction;
+use App\Geolocation;
+use App\Shop;
 use Illuminate\Http\Request;
+use Illuminate\Session\Store;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 
@@ -36,7 +39,7 @@ class ShopController extends Controller
         if ($validator->fails()) {
             //TODO руты настроить
             return redirect()
-                ->route('customer.addMarket')
+                ->route('customer.addMarketPost')
                 ->withErrors($validator)
                 ->exceptInput();
         }
@@ -50,7 +53,20 @@ class ShopController extends Controller
         $newShop = new CreateAction($newData);
         $newShop->create();
         //TODO Андрей, настрой редирект по рутам по всем методам
-        return redirect('customer.addMarketPost');
+        return redirect()->route('customer.addMarket');
+    }
+
+    public function getUpdatePage($id, Request $request)
+    {
+        /** @var Shop $shop */
+        $shop = Shop::finde($id);
+        if ($shop == null) {
+            return redirect()->route('customer.addMarket');
+        }
+
+        $geolocation = Geolocation::finde($shop->geolocation_id);
+        $coordinats = ['longitude', 'latitude'];
+        return view('addStore', ['coordinats' => $coordinats, 'id' => $shop->id, 'geolocation_id' => $geolocation->id]);
     }
 
     /**

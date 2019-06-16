@@ -61,6 +61,8 @@ Route::group(['middleware' => 'auth'], function () {
                 return view('addStore');
             })->name('customer.addMarket');
 
+            Route::get('update_market', 'ShopController@getUpdatePage')->name('customer.updateMarket');
+
             Route::post('add_market', 'ShopController@create')->name('customer.addMarketPost');
         });
     });
