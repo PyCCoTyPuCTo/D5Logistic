@@ -29,6 +29,19 @@
                             <td></td>
                         </tr>
 
+
+
+                        <?php $counter = 0; ?>
+                        @foreach($warehouses as $warehouse)
+                            <tr>
+                                <th>{{++$counter}}</th>
+                                <td>Арес</td>
+                                <td><a class="btn btn-primary"
+                                       href="{{route('customer.updateWarehouse',['id'=>$warehouse->id])}}">Редактировать</a>
+                                </td>
+                            </tr>
+                        @endforeach
+
                         </tbody>
                     </table>
                 </div>
