@@ -6,6 +6,7 @@
     <div class="container table-hover" style="">
         <div class="row justify-content-center">
             <div class="col-md-10">
+                <h2>Поставляемые продукты:</h2>
                 <div class="m-3">
                     <?php $pruducts = [['name' => 'Jacobs', 'category' => 'Кофе'],
                         ['name' => 'Naskafe', 'category' => 'Кофе'], ['name' => 'Вафли "павлин"', 'category' => 'Сладости'],
