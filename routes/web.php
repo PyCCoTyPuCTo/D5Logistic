@@ -66,7 +66,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'customer'], function () {
         Route::group(['middleware' => 'customer'], function () {
             Route::get('delivery_orders', function () {
-                return 'delivery_orders';
+                return view('customer.delivery_orders');
             })->name('customer.deliveryOrders');
 
             Route::get('today_orders', function () {
