@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    @yield('register')
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>D5Logistic</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,6 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    @yield('register')
 </head>
 <body>
 <div id="app">
@@ -31,7 +34,7 @@
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="{{ __('Toggle navigation') }}">
+                    aria-label="{{ __('Навигация') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -46,15 +49,48 @@
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Вход') }}</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">{{ __('Регистрация') }}</a>
                             </li>
                         @endif
                     @else
-                        <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Личный кабинет</a></li>
+                        @if(Auth::user()->type->name == 'Customer')
+
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.deliveryOrders')}}">Заявка
+                                    на поставку</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.todayOrders')}}">Заявки на
+                                    сегодня</a></li>
+
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.markets')}}">Магазины</a>
+                            </li>
+
+
+                        @elseif(Auth::user()->type->name == 'Seller')
+
+
+                            <li class="nav-item"><a class="nav-link" href="{{route('seller.warehouses')}}">Склады</a>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.todayOrders')}}">Товары</a>
+                            </li>
+
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.vehicles')}}">Транспорт</a>
+                            </li>
+
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.deliveryOrders')}}">Маршрут
+                                    на день</a></li>
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.todayOrders')}}">Товары на
+                                    складах</a></li>
+
+                            <li class="nav-item"><a class="nav-link" href="{{route('customer.markets')}}">Одобрение
+                                    поставок</a>
+                            </li>
+
+                        @endif
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -65,7 +101,7 @@
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('Выход') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -80,7 +116,7 @@
         </div>
     </nav>
 
-    <main class="py-4">
+    <main class="mainDiv py-4">
         @yield('content')
     </main>
 </div>
